@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+<h1>Employees of Knack System</h1>
+<ul>
+    <li><a href="https://www.w3schools.com">Emoplyee names</a></li>
+    <li><a href="https://www.w3schools.com">Employee age</a></li>
+    <li><a href="https://www.w3schools.com">Employee Department</a></li>
+    <li><a href="https://www.w3schools.com">Employee Salary</a></li>
+</ul>
+
+<h1>Employeeslisting page</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= link_to "Employee Name", :sort => "name"%></th>
+      <th><%= link_to "Email", :sort => "email"%></th>
+      <th><%= link_to "Age", :sort => "age"%></th>
+      <th><%= link_to "Salary", :sort => "salary"%></th>
+      <th><%= link_to "Department", :sort => "salary"%></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name%></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.age%></td>
+        <td><%= employee.salary%></td>
+        <td><%= employee.department%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <% @employees.each do |employee| %>
+    <p><%= employee.name%></p>
+    
+  <% end %>
+  
+</div>
+<h1>Employees</h1>
+
+<div id="employees">
+  <% @employees.each do |employee| %>
+    <%= render employee %>
+    <p>
+      <%= link_to "Show this employee", employee %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New employee", new_employee_path %>
